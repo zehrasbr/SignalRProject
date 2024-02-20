@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.DtoLayer.AboutDto
 {
-    public class ResultAboutDto 
+    public class UpdateAboutDto
     {
         public int AboutID { get; set; }
         public string ImageUrl { get; set; }
