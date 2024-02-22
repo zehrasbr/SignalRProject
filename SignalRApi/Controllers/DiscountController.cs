@@ -15,7 +15,6 @@ namespace SignalRApi.Controllers
     {
         private readonly IDiscountService _discountService;
         private readonly IMapper _mapper;
-
         public DiscountController(IDiscountService discountService, IMapper mapper)
         {
             _discountService = discountService;
