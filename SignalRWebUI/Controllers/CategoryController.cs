@@ -23,5 +23,9 @@ namespace SignalRWebUI.Controllers
 			}
 			return View();
 		}
+		public IActionResult CreateCategory()
+		{
+			return View();
+		}
 	}
 }
