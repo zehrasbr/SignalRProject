@@ -4,8 +4,6 @@
 	Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Index</h1>
-
 
 <div class="content">
 	<div class="container-fluid">
@@ -34,9 +32,7 @@
 							<tbody>
 								@foreach(var item in Model)
 								{
-									@* count++; *@
 									<tr>
-										@* <th>@count</th> *@
 										<td>@item.CategoryName</td>
 										<td>@item.CategoryStatus</td>
 										<td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger">Sil</a></td>
