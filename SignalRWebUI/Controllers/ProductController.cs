@@ -50,7 +50,7 @@ namespace SignalRWebUI.Controllers
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(createProductDto);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PostAsync("https://localhost:7169/api/Product", stringContent);
+			var responseMessage = await client.PostAsync("https://localhost:7169/api/Category", stringContent);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");
@@ -70,6 +70,17 @@ namespace SignalRWebUI.Controllers
 		[HttpGet]
 		public async Task<IActionResult> UpdateProduct(int id)
 		{
+		    var client1 = _httpClientFactory.CreateClient();
+			var responseMessage1 = await client1.GetAsync("https://localhost:7169/api/Category");
+			var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
+			var values1 = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData1);
+			List<SelectListItem> values2 = (from x in values1 
+											select new SelectListItem
+											{
+												Text = x.CategoryName,
+												Value = x.CategoryID.ToString()
+											}).ToList();
+			ViewBag.v=values2;
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync($"https://localhost:7169/api/Product/{id}");
 			if (responseMessage.IsSuccessStatusCode)
