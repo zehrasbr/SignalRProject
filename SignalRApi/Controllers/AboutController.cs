@@ -11,7 +11,6 @@ namespace SignalRApi.Controllers
     public class AboutController : ControllerBase
     {
         private readonly IAboutService _aboutService;
-
         public AboutController(IAboutService aboutService)
         {
             _aboutService = aboutService;
