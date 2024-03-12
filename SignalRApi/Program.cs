@@ -4,6 +4,7 @@ using SignalR.BusinessLayer.Concrete;
 using SignalR.DataAccessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.EntityFramework;
+using SignalRApi.Hubs;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -75,5 +76,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<SignalRHub>("/signalrhub");
 app.Run();
