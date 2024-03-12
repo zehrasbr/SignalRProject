@@ -12,9 +12,13 @@ builder.Services.AddCors(opt =>
 {
 	opt.AddPolicy("CorsPolicy", builder =>
 	{
+		//herhangi bir baþlýða izin versin
 		builder.AllowAnyHeader()
+		//gelen herhangi bir methoda izin versin
 		.AllowAnyMethod()
+		//gelen herhangi bir kaynaða izin versin
 		.SetIsOriginAllowed((host) => true)
+		//dýþarýdan gelen herhangi bir kimliðe izin versin 
 		.AllowCredentials();
 	});
 });
@@ -63,6 +67,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
